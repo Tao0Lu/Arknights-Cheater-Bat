@@ -1,11 +1,11 @@
 # Arknights-Armada
 
+**先前方法失效，现Fork修复自定义干员和干员编队——Tao0Lu**
+
 明日方舟修改器 / Arknights Cheat
 
 利用 [mitmproxy](https://www.mitmproxy.org/) 来实现对明日方舟数据的中间人攻击，从而修改部分我们希望修改的数据。
 通过设置PAC代理的方式可以支持任意设备、模拟器使用，支持多个用户同时使用。
-
-先前方法失效，现Fork修复自定义干员和干员编队——Tao0Lu
 
 **仅供学习使用，被封号我不管，禁止违法用途。**~~我已经爽够了（划掉~~
 
@@ -20,17 +20,17 @@
 
 ## 使用说明
 
-1. 安装mitmproxy
+1. 下载mitmdump.exe，放入脚本同级目录。
 
-2. 在手机或模拟器中信任mitmproxy证书(进入网站mitm.it下载)
+2. 在手机或模拟器中信任mitmproxy证书(进入网站mitm.it下载)。
 
 3. 下载 Kengxxiao 大佬提取解包的游戏数据 [character_table.json](https://github.com/Kengxxiao/ArknightsGameData/blob/master/zh_CN/gamedata/excel/character_table.json)，放入脚本同级目录。
 
-4. 执行 mitmdump.exe -s .\蛇皮.py --ssl-insecure -p 12450
+4. 执行 明日方舟破解.bat。
 
-5. 配置手机代理
+5. 按照bat配置手机代理。
 
-6. 重新进入游戏，看到控制台输出干员信息并且游戏内看板娘变为**~~我老婆~~**精二能天使即开启成功
+6. 重新进入游戏，看到控制台输出干员信息并且游戏内看板娘变为**~~我老婆~~**精二能天使即开启成功。
 
    ![开启成功](https://i.loli.net/2020/03/19/nh9GsmqZlu4JUyf.png)
 
