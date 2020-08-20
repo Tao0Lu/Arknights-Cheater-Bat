@@ -1,4 +1,4 @@
-print("黄金蛇皮舰队 v3.5.4")  # 2020.8.9 updated by Tao0Lu forked from GhostStar/Arknights-Armada 
+print("黄金蛇皮舰队 v3.5.4")  # 2020.8 updated by Tao0Lu forked from GhostStar/Arknights-Armada 
 import mitmproxy.http
 
 from mitmproxy import ctx, http
@@ -75,21 +75,19 @@ class Armada:
             entryGame=True
         if flow.request.url.startswith("https://ak-as.hypergryph.com:9443/online/v1/ping"):
             j=json.loads(flow.response.get_text())
-            print('防沉迷破解: 禁用 防沉迷-游戏剩余时间')
             if entryGame:
-                flow.response.set_text('{"result": 0, "message": "OK", "interval": 60, "timeLeft": 5400, "alertTime": 600}')
+                flow.response.set_text('{"result":0,"message":"OK","interval":5400,"timeLeft":-1,"alertTime":600}')
                 entryGame=False
             else:
                 flow.response = http.HTTPResponse.make(404)
-                
             if j['message'][:6]=='您已达到本日':
-                print('防沉迷破解: 您已达到本日在线时长上限或不在可游戏时间范围内，破解后仍可以继续游戏，但请合理安排游戏时间。')
+                print('明日方舟防沉迷破解: 您已达到本日在线时长上限或不在可游戏时间范围内，破解后仍可以继续游戏，但请合理安排游戏时间。')
             else:
-                s = 5400-j['timeLeft']
+                s = j['timeLeft']
                 h = int(s/3600)
                 m = int((s-h*3600)/60)
                 ss = int(s-h*3600-m*60)
-                print ('防沉迷破解: 您已在线'+str(h)+'小时'+str(m)+'分钟' + str(ss)+'秒，请合理安排游戏时间。')
+                print('明日方舟防沉迷破解: 游戏剩余时间 '+str(h)+'小时'+str(m)+'分钟' + str(ss)+'秒 修改为 不限制，但请合理安排游戏时间。')
         if flow.request.host in Servers and flow.request.path.startswith("/account/syncData"):
             text = flow.response.get_text()
             j = json.loads(text)
